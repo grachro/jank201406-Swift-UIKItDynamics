@@ -12,6 +12,9 @@
 		F4E5F90D196045B3002D9D4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4E5F90B196045B3002D9D4B /* Main.storyboard */; };
 		F4E5F90F196045B3002D9D4B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4E5F90E196045B3002D9D4B /* Images.xcassets */; };
 		F4E5F91B196045B3002D9D4B /* jank201406_Swift_UIKItDynamicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E5F91A196045B3002D9D4B /* jank201406_Swift_UIKItDynamicsTests.swift */; };
+		F4E5F92719604A6E002D9D4B /* tomato.png in Resources */ = {isa = PBXBuildFile; fileRef = F4E5F92619604A6E002D9D4B /* tomato.png */; };
+		F4E5F92919605372002D9D4B /* nasu.png in Resources */ = {isa = PBXBuildFile; fileRef = F4E5F92819605372002D9D4B /* nasu.png */; };
+		F4E5F92B196054BB002D9D4B /* kyabetu.png in Resources */ = {isa = PBXBuildFile; fileRef = F4E5F92A196054BB002D9D4B /* kyabetu.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,9 @@
 		F4E5F914196045B3002D9D4B /* jank201406-Swift-UIKItDynamicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "jank201406-Swift-UIKItDynamicsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4E5F919196045B3002D9D4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4E5F91A196045B3002D9D4B /* jank201406_Swift_UIKItDynamicsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jank201406_Swift_UIKItDynamicsTests.swift; sourceTree = "<group>"; };
+		F4E5F92619604A6E002D9D4B /* tomato.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tomato.png; sourceTree = "<group>"; };
+		F4E5F92819605372002D9D4B /* nasu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nasu.png; sourceTree = "<group>"; };
+		F4E5F92A196054BB002D9D4B /* kyabetu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kyabetu.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,9 @@
 				F4E5F909196045B3002D9D4B /* ViewController.swift */,
 				F4E5F90B196045B3002D9D4B /* Main.storyboard */,
 				F4E5F90E196045B3002D9D4B /* Images.xcassets */,
+				F4E5F92619604A6E002D9D4B /* tomato.png */,
+				F4E5F92A196054BB002D9D4B /* kyabetu.png */,
+				F4E5F92819605372002D9D4B /* nasu.png */,
 				F4E5F905196045B3002D9D4B /* Supporting Files */,
 			);
 			path = "jank201406-Swift-UIKItDynamics";
@@ -190,6 +199,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4E5F90D196045B3002D9D4B /* Main.storyboard in Resources */,
+				F4E5F92719604A6E002D9D4B /* tomato.png in Resources */,
+				F4E5F92919605372002D9D4B /* nasu.png in Resources */,
+				F4E5F92B196054BB002D9D4B /* kyabetu.png in Resources */,
 				F4E5F90F196045B3002D9D4B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
