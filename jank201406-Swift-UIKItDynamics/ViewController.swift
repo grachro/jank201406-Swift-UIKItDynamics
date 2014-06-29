@@ -10,16 +10,78 @@ import UIKit
 
 class ViewController: UIViewController {
                             
+    var animator:UIDynamicAnimator?
+    var gravity:UIGravityBehavior?
+    var collision: UICollisionBehavior?
+    
+    override func viewWillAppear(animated: Bool)  {
+    
+    
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+        
+        //左ボタン
+        let leftBtn:UIButton =  addButton(10,title:"トマト" ,targetAction:"clickLeft:" );
+        
+        //中央ボタン
+        let centerBtn:UIButton =  addButton(110,title:"なす" ,targetAction:"clickCenter:" );
 
+        //右ボタン
+        let rightBtn:UIButton =  addButton(210,title:"キャベツ" ,targetAction:"clickRight:" );
+        
+        
+        //アニメーター
+        self.animator = UIDynamicAnimator(referenceView: self.view)
+        
+        //衝突
+        self.collision = UICollisionBehavior(items:nil)
+        self.collision!.translatesReferenceBoundsIntoBoundary = true;
+        self.collision!.addItem(leftBtn);
+        self.collision!.addItem(centerBtn);
+        self.collision!.addItem(rightBtn);
+        self.animator!.addBehavior(self.collision);
+        
+        //重力
+        self.gravity = UIGravityBehavior(items:nil)
+        self.animator!.addBehavior(self.gravity);
+    }
+    
+    func addButton(x:CGFloat,title:String,targetAction:Selector) -> UIButton{
+        let rightBtn:UIButton =  UIButton.buttonWithType(UIButtonType.System) as UIButton;
+        rightBtn.frame = CGRectMake(x, 400 , 100, 40);
+        rightBtn.setTitle(title , forState:UIControlState.Normal);
+        rightBtn.addTarget(self, action:targetAction, forControlEvents:UIControlEvents.TouchUpInside);
+        self.view.addSubview(rightBtn);
+        return rightBtn
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    func clickLeft(sender: AnyObject){
+        addItem(10,pngName:"tomato.png");
+    }
+    
+    func clickCenter(sender: AnyObject){
+        addItem(110,pngName:"nasu.png");
+    }
+    
+    func clickRight(sender: AnyObject){
+        addItem(210,pngName:"kyabetu.png");
+    }
+    
+    func addItem(x:CGFloat,pngName:String){
+        let pngImage:UIImage = UIImage(named:pngName)
+        let img = UIImageView(image:pngImage);
+        img.center = CGPointMake(x, 0);
+        
+        self.view!.addSubview(img);
+        self.gravity!.addItem(img)
+        self.collision!.addItem(img);
+    }
 }
 
