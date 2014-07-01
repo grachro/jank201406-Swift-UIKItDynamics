@@ -9,7 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-                            
+    
+    var allItems:UIView[] = []
     var animator:UIDynamicAnimator?
     var gravity:UIGravityBehavior?
     var collision: UICollisionBehavior?
@@ -21,6 +22,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        //初期化ボタン
+        let clearBtn:UIButton =  addClearButton(110,title:"CLEAR" ,targetAction:"clickClear:" );
         
         //左ボタン
         let leftBtn:UIButton =  addButton(10,title:"トマト" ,targetAction:"clickLeft:" );
@@ -48,6 +52,16 @@ class ViewController: UIViewController {
         self.animator!.addBehavior(self.gravity);
     }
     
+    
+    func addClearButton(x:CGFloat,title:String,targetAction:Selector) -> UIButton{
+        let rightBtn:UIButton =  UIButton.buttonWithType(UIButtonType.System) as UIButton;
+        rightBtn.frame = CGRectMake(x, 20 , 100, 40);
+        rightBtn.setTitle(title , forState:UIControlState.Normal);
+        rightBtn.addTarget(self, action:targetAction, forControlEvents:UIControlEvents.TouchUpInside);
+        self.view.addSubview(rightBtn);
+        return rightBtn
+    }
+    
     func addButton(x:CGFloat,title:String,targetAction:Selector) -> UIButton{
         let rightBtn:UIButton =  UIButton.buttonWithType(UIButtonType.System) as UIButton;
         rightBtn.frame = CGRectMake(x, 400 , 100, 40);
@@ -60,6 +74,16 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func clickClear(sender: AnyObject) {
+        //self.view!.viewWithTag(1)!.removeFromSuperview();
+
+        for item in self.allItems {
+            item.removeFromSuperview();
+            self.gravity!.removeItem(item);
+            self.collision!.removeItem(item);
+        }
     }
     
     func clickLeft(sender: AnyObject){
@@ -78,9 +102,11 @@ class ViewController: UIViewController {
         let pngImage:UIImage = UIImage(named:pngName)
         let img = UIImageView(image:pngImage);
         img.center = CGPointMake(x, 0);
+        img.tag = 1
         
+        self.allItems += img;
         self.view!.addSubview(img);
-        self.gravity!.addItem(img)
+        self.gravity!.addItem(img);
         self.collision!.addItem(img);
     }
 }
